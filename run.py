@@ -16,16 +16,39 @@ SHEET = GSPREAD_CLIENT.open('pet_survey_analysis')
 # data = test.get_all_values()
 # print(data)
 
-def get_pet_data():
+def do_you_have_pets():
     """
     Get pet data input from user
     """
-    data_str = input("Does the participant have / had a pet? (Y / N)\n")
-    print(f"User input is {data_str}\n")
+    question_one = input("Does the participant have / had a pet? (Y / N)\n").strip().upper()
+    print(f"User input is {question_one}\n")
+    
+    validate_do_you_have_pets(question_one)
+
+
+def validate_do_you_have_pets(answer):
+    """
+    Validate answer given.
+    Checks if answer given was Y or N.
+    """
+    print("test validate working")
+    print(answer)
+    
+    try:
+        if answer not in ('Y', 'N'):
+            raise ValueError(
+                f"Y or N is required, you answered {answer}"
+                )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again.\n")
+
+    # Validate result
+    # Ensure key pressed is Y or N - capitalize answer
+    # Else - error message and restart question
 
 
 print("Welcome to Pet Surveyor Analysis\n")
-get_pet_data()
+do_you_have_pets()
 
 # Idea1
 # Welcome user to Pet Surveyor Analysis, Input function (how many have no pets) 
