@@ -17,6 +17,7 @@ data = test.get_all_values()
 print(data)
 
 
+# Idea1
 # Welcome user to Pet Surveyor Analysis, Input function (how many have no pets) 
 # Input continue; how many have (Dog, cat, fish, bird, other)
 #       Validate checks for integers, not negative, not points, not characters
@@ -25,6 +26,19 @@ print(data)
 # Output to google sheet - should update graph also
 #
 #
+#
+# Idea2
+# Welcome user to Pet Surveyor Analysis, Input function (Does participant have / had a pet) - Y/N?
+# NO - keep track of result as NoPet
+# YES - To next prompt; What animal?
+#       Validate not numbers
+#       Check for most popular animals 
+#           (DOG, CAT, FISH, BIRD, REPTILE / AMPHIBIAN, SMALL MAMMAL (i.e. Hamster, Mouse), INSECTS, OTHER
+#       If not in the list, goes under "OTHER"
+# Output what is currentlt the most popular pet
+# Display results as dictionary
+# Total people surveyed
+# Output to google sheet - should update graph also
 
 
 # Your code goes here.
