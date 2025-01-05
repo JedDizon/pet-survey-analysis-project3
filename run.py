@@ -20,20 +20,21 @@ def do_you_have_pets():
     """
     Get pet data input from user
     """
-    question_one = input("Does the participant have / had a pet? (Y / N)\n").strip().upper()
-    print(f"User input is {question_one}\n")
-    
-    validate_do_you_have_pets(question_one)
+    while True:
+        question_one = input("Does the participant have / had a pet? (Y / N)\n").strip().upper()
+        print(f"User input is {question_one}\n")
+        
+        if validate_do_you_have_pets(question_one):
+            print("Data is valid!")
+            break
+    return question_one_answer
 
 
 def validate_do_you_have_pets(answer):
     """
     Validate answer given.
     Checks if answer given was Y or N.
-    """
-    print("test validate working")
-    print(answer)
-    
+    """    
     try:
         if answer not in ('Y', 'N'):
             raise ValueError(
@@ -41,6 +42,9 @@ def validate_do_you_have_pets(answer):
                 )
     except ValueError as e:
         print(f"Invalid data: {e}, please try again.\n")
+        return False
+
+    return True
 
     # Validate result
     # Ensure key pressed is Y or N - capitalize answer
@@ -48,7 +52,7 @@ def validate_do_you_have_pets(answer):
 
 
 print("Welcome to Pet Surveyor Analysis\n")
-do_you_have_pets()
+question_one_data = do_you_have_pets()
 
 # Idea1
 # Welcome user to Pet Surveyor Analysis, Input function (how many have no pets) 
@@ -68,6 +72,7 @@ do_you_have_pets()
 #       Check for most popular animals 
 #           (DOG, CAT, FISH, BIRD, REPTILE / AMPHIBIAN, SMALL MAMMAL (i.e. Hamster, Mouse), INSECTS, OTHER
 #       If not in the list, goes under "OTHER"
+# LOOP - what animal - continue? 
 # Output what is currentlt the most popular pet
 # Display results as dictionary
 # Total people surveyed
