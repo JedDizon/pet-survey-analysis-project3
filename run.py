@@ -25,8 +25,12 @@ def do_you_have_pets():
         print(f"User input is {question_one}\n")
         
         if validate_do_you_have_pets(question_one):
-            print("Data is valid!")
-            break
+            if question_one == 'N':
+                print("No pets, program will end.")
+                return "No" # answered_no (Need to be defined) 
+            elif question_one == "Y":
+                print("Data is valid!")
+                break
     return question_one_answer
 
 
