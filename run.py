@@ -12,10 +12,20 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('pet_survey_analysis')
 
-test = SHEET.worksheet('results')
-data = test.get_all_values()
-print(data)
+# test = SHEET.worksheet('results')
+# data = test.get_all_values()
+# print(data)
 
+def get_pet_data():
+    """
+    Get pet data input from user
+    """
+    data_str = input("Does the participant have / had a pet? (Y / N)\n")
+    print(f"User input is {data_str}\n")
+
+
+print("Welcome to Pet Surveyor Analysis\n")
+get_pet_data()
 
 # Idea1
 # Welcome user to Pet Surveyor Analysis, Input function (how many have no pets) 
