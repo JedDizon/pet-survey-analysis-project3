@@ -91,8 +91,7 @@ def keep_asking():
                 print("No additional animals to add")
                 return False
             elif question_three == "Y":
-                print("More animals added")
-                what_animal()
+                print("You want to add more animals")
                 return True
 
 
