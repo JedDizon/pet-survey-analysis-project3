@@ -115,17 +115,8 @@ print("Welcome to Pet Surveyor Analysis\n")
 question_one_data = do_you_have_pets()
 
 
-# Idea1
-# Welcome user to Pet Surveyor Analysis, Input function (how many have no pets) 
-# Input continue; how many have (Dog, cat, fish, bird, other)
-#       Validate checks for integers, not negative, not points, not characters
-# Output what is most popular pet
-# Display results as dictionary
-# Output to google sheet - should update graph also
-#
-#
-#
-# Idea2
+
+# Plan
 # Welcome user to Pet Surveyor Analysis, Input function (Does participant have / had a pet) - Y/N?
 # NO - keep track of result as NoPet
 # YES - To next prompt; What animal?
