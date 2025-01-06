@@ -95,22 +95,6 @@ def keep_asking():
                 return True
 
 
-def validate_another_pet(answer):
-    """
-    Validate answer given.
-    Checks if answer given was Y or N.
-    """
-    try:
-        if answer not in ('Y', 'N'):
-            raise ValueError(
-                f"Y or N is required, you answered {answer}"
-                )
-    except ValueError as e:
-        print(f"Invalid data: {e}, please try again.\n")
-        return False
-    return True
-
-
 print("Welcome to Pet Surveyor Analysis\n")
 question_one_data = do_you_have_pets()
 
