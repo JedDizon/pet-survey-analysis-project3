@@ -27,11 +27,10 @@ def do_you_have_pets():
         if validate_y_n_question(question_one):
             if question_one == 'N':
                 print("No pets, program will end.")
-                return "No" # answered_no (Need to be defined) 
+                return []
             elif question_one == "Y":
                 print("Data is valid!")
-                what_animal()
-                break
+                return what_animal()
     return question_one
 
 
@@ -55,14 +54,16 @@ def what_animal():
     """
     Get pet data input from user
     """
+    animal_list = []
     while True:
         question_two = input("What animal?\n").strip().upper()
         print(f"User input is {question_two}\n")
         if validate_what_animal(question_two):
             print("Animal is valid!")
+            animal_list.append(question_two)
             if not keep_asking():
                 break
-    return question_two
+    return animal_list
 
 def validate_what_animal(answer):
     """
@@ -95,9 +96,18 @@ def keep_asking():
                 return True
 
 
-print("Welcome to Pet Surveyor Analysis\n")
-question_one_data = do_you_have_pets()
 
+print("Welcome to Pet Surveyor Analysis\n")
+animal_list = do_you_have_pets()
+print(f"Resulting animal list: {animal_list}")
+
+#def main():
+#    """
+#    Run all program functions
+#    """
+#    do_you_have_pets()
+#    animal_list = do_you_have_pets()
+#    print(animal_list)
 
 
 # Plan
@@ -109,8 +119,12 @@ question_one_data = do_you_have_pets()
 #           (DOG, CAT, FISH, BIRD, REPTILE / AMPHIBIAN, SMALL MAMMAL (i.e. Hamster, Mouse), INSECTS, OTHER
 #       If not in the list, goes under "OTHER"
 # LOOP - what animal - continue? 
+# save inputs into a list
+#   upload to googlesheet - append to existing data (create function is that everything?)
+#   function to upload to sheets
+#   inform user updating sheets, etc. 
 # Output what is currentlt the most popular pet
-# Display results as dictionary
+# Display results as a list
 # Total people surveyed
 # Output to google sheet - should update graph also
 #add clear prev data option at start
