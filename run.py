@@ -127,7 +127,10 @@ print(f"Resulting animal list: {animal_list}")
 # Display results as a list
 # Total people surveyed
 # Output to google sheet - should update graph also
-#add clear prev data option at start
+
+# Maybe add
+# add clear prev data option at start
+# can paste in list of animals separated by comma
 
 
 # Your code goes here.
