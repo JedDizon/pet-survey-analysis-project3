@@ -1,5 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
+from collections import Counter
+
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -105,12 +107,17 @@ def update_survey_worksheet(data):
     sales_worksheet.append_row(data)
     print("Survey worksheet updated successfully.\n")
 
+def main():
+    """
+    Run all program functions
+    """
+    print("Welcome to Pet Surveyor Analysis\n")
+    animal_list = do_you_have_pets()
+    print(f"Resulting animal list: {animal_list}")
+    update_survey_worksheet(animal_list)
 
+main()
 
-print("Welcome to Pet Surveyor Analysis\n")
-animal_list = do_you_have_pets()
-print(f"Resulting animal list: {animal_list}")
-update_survey_worksheet(animal_list)
 
 #def main():
 #    """
