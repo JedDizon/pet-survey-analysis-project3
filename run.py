@@ -152,8 +152,8 @@ def get_highest_count_animal():
     # Get the current worksheet data
     worksheet_data = get_worksheet_values()
     
-    if not worksheet_data:
-        print("The worksheet is empty or has no valid data.")
+    if all(count == 0 for count in worksheet_data.values()):
+        print("All animal counts are 0. No highest count animal.\n")
         return None
     
     # Find the animal with the maximum count
