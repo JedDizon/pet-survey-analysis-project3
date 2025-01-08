@@ -103,9 +103,27 @@ def update_survey_worksheet(data):
     """
 
     print("Updating survey worksheet...\n")
-    sales_worksheet = SHEET.worksheet("results")
-    sales_worksheet.append_row(data)
+    results_worksheet = SHEET.worksheet("results")
+    results_worksheet.append_row(data)
     print("Survey worksheet updated successfully.\n")
+
+
+def get_workshet_values():
+    """
+    Get values from worksheet
+    """
+    print("Getting worksheet values...\n")
+    results_worksheet = SHEET.worksheet("results")
+
+    # Get all values from the worksheet
+    data = results_worksheet.get_all_values()  # Retrieves all rows, including the header
+
+    # Skip the header row and build a dictionary of Animal: Count
+    worksheet_data = {row[0].strip().upper(): int(row[1]) for row in data[1:] if len(row) == 2}
+    
+    print(f"Retrieved data: {worksheet_data}\n")
+    return worksheet_data
+
 
 def main():
     """
@@ -116,7 +134,7 @@ def main():
     print(f"Resulting animal list: {animal_list}")
     update_survey_worksheet(animal_list)
 
-main()
+#main()
 
 
 # Plan
