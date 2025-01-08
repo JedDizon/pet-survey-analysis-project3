@@ -143,6 +143,27 @@ def get_worksheet_values():
     return worksheet_data
 
 
+def get_highest_count_animal():
+    """
+    Determine the most popular animal
+    """
+    print("Determining the animal with the highest count...\n")
+    
+    # Get the current worksheet data
+    worksheet_data = get_worksheet_values()
+    
+    if not worksheet_data:
+        print("The worksheet is empty or has no valid data.")
+        return None
+    
+    # Find the animal with the maximum count
+    highest_animal = max(worksheet_data, key=worksheet_data.get)
+    highest_count = worksheet_data[highest_animal]
+    
+    print(f"The animal with the highest count is '{highest_animal}' with a count of {highest_count}.\n")
+    return highest_animal, highest_count
+
+
 def main():
     """
     Run all program functions
@@ -151,6 +172,7 @@ def main():
     animal_list = do_you_have_pets()
     print(f"Resulting animal list: {animal_list}")
     update_survey_worksheet(animal_list)
+    get_highest_count_animal()
 
 main()
 
