@@ -95,11 +95,22 @@ def keep_asking():
                 print("You want to add more animals")
                 return True
 
+def update_survey_worksheet(data):
+    """
+    Update survey worksheet
+    """
+
+    print("Updating survey worksheet...\n")
+    sales_worksheet = SHEET.worksheet("results")
+    sales_worksheet.append_row(data)
+    print("Survey worksheet updated successfully.\n")
+
 
 
 print("Welcome to Pet Surveyor Analysis\n")
 animal_list = do_you_have_pets()
 print(f"Resulting animal list: {animal_list}")
+update_survey_worksheet(animal_list)
 
 #def main():
 #    """
