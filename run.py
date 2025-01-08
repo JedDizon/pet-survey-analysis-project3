@@ -119,15 +119,6 @@ def main():
 main()
 
 
-#def main():
-#    """
-#    Run all program functions
-#    """
-#    do_you_have_pets()
-#    animal_list = do_you_have_pets()
-#    print(animal_list)
-
-
 # Plan
 # Welcome user to Pet Surveyor Analysis, Input function (Does participant have / had a pet) - Y/N?
 # NO - keep track of result as NoPet
