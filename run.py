@@ -97,26 +97,44 @@ def keep_asking():
                 print("You want to add more animals")
                 return True
 
+
 def update_survey_worksheet(data):
     """
-    Update survey worksheet
+    Update survey worksheet with aggregated animal counts.
     """
-
     print("Updating survey worksheet...\n")
-    results_worksheet = SHEET.worksheet("results")
-    results_worksheet.append_row(data)
+    
+    # Get current worksheet values as a dictionary
+    worksheet_data = get_worksheet_values()
+    
+    # Count new occurrences of each animal from the current data
+    new_counts = Counter(data)
+    
+    # Update worksheet data with new counts
+    for animal, count in new_counts.items():
+        if animal in worksheet_data:
+            worksheet_data[animal] += count
+        else:
+            print(f"Warning: {animal} is not listed in the worksheet. Skipping.")
+
+    # Simulate worksheet update by printing (ChatGPT)
+    for row_index, (animal, count) in enumerate(worksheet_data.items(), start=2):  # Start from row 2 to skip header
+        print(f"Updating worksheet: {animal} -> {count}")
+        # Uncomment below line for actual worksheet update
+        SHEET.worksheet("results").update_cell(row_index, 2, count)
+    
     print("Survey worksheet updated successfully.\n")
 
 
-def get_workshet_values():
+def get_worksheet_values():
     """
-    Get values from worksheet
+    Get values from the 'results' worksheet and return as a dictionary.
     """
     print("Getting worksheet values...\n")
     results_worksheet = SHEET.worksheet("results")
 
     # Get all values from the worksheet
-    data = results_worksheet.get_all_values()  # Retrieves all rows, including the header
+    data = results_worksheet.get_all_values()  
 
     # Skip the header row and build a dictionary of Animal: Count
     worksheet_data = {row[0].strip().upper(): int(row[1]) for row in data[1:] if len(row) == 2}
@@ -134,7 +152,7 @@ def main():
     print(f"Resulting animal list: {animal_list}")
     update_survey_worksheet(animal_list)
 
-#main()
+main()
 
 
 # Plan
