@@ -18,6 +18,7 @@ SHEET = GSPREAD_CLIENT.open('pet_survey_analysis')
 # data = test.get_all_values()
 # print(data)
 
+
 def do_you_have_pets():
     """
     Get pet data input from user
@@ -98,6 +99,34 @@ def keep_asking():
                 return True
 
 
+def ask_to_reset_prev_data():
+    """
+    Ask if user wants to reset previous data from worksheet.
+    """
+    while True:
+        question_four = input("Do you want to clear previous data? (Y / N)\n").strip().upper()
+        print(f"User input is {question_four}\n")
+        if validate_y_n_question(question_four):
+            if question_four == 'N':
+                print("Previous data will not be reset.")
+                return False
+            else:
+                print("Previous data will be reset.")
+                reset_prev_data()
+                return True
+
+
+
+def reset_prev_data():
+    """
+    Reset data back to 0 in the worksheet.
+    """
+    print("Resetting previous data...\n")
+    worksheet_to_update = SHEET.worksheet("results")
+    worksheet_to_update.update('B2:B9', [[0]] * 8)
+    print("Previous data has been reset.\n")
+
+
 def update_survey_worksheet(data):
     """
     Update survey worksheet with aggregated animal counts.
@@ -139,7 +168,7 @@ def get_worksheet_values():
     # Skip the header row and build a dictionary of Animal: Count
     worksheet_data = {row[0].strip().upper(): int(row[1]) for row in data[1:] if len(row) == 2}
     
-    print(f"Retrieved data: {worksheet_data}\n")
+    print(f"Current data: {worksheet_data}\n")
     return worksheet_data
 
 
@@ -169,10 +198,15 @@ def main():
     Run all program functions
     """
     print("Welcome to Pet Surveyor Analysis\n")
+    get_worksheet_values()
+    data_reset = ask_to_reset_prev_data()
+
     animal_list = do_you_have_pets()
     print(f"Resulting animal list: {animal_list}")
     update_survey_worksheet(animal_list)
     get_highest_count_animal()
+
+
 
 main()
 
@@ -192,11 +226,14 @@ main()
 #   inform user updating sheets, etc. 
 # Output what is currentlt the most popular pet
 # Display results as a list
-# Total people surveyed
 # Output to google sheet - should update graph also
 
 # Maybe add
 # add clear prev data option at start
+    #ask if want to clear
+    #if no, call do you have pets
+    #if yes, call clear prev data
+    #   get current data also from worksheet
 # can paste in list of animals separated by comma
 
 
