@@ -4,8 +4,15 @@ The Pet Surveyor Analysis Program is a Python-based tool designed to collect and
 
 The program can reset previous data, add new entries, and determine the most popular animal based on the current dataset. It's an easy-to-use tool for managing and visualizing pet-related survey data efficiently.
 
-<IMAGE_OF_SITE>
-<LINK>
+
+[Pet Survey Analysis - Program](https://pet-survey-analysis-project3-dc2d0651f524.herokuapp.com) 
+
+
+[Pet Survey Analysis - Worksheet](https://docs.google.com/spreadsheets/d/1C_0NYb2zTn44TahjGgOV47mYidhFjdlgo7ksUgCxE6U/edit?usp=sharing) 
+
+
+![Website image](/assets/images/petsurveyanalysis-site-image.png)
+
 
 ---
 
@@ -52,20 +59,28 @@ Automatically aggregates and updates animal counts in the worksheet.
 
 Handles both new data entry and existing data updates without duplications.
 
+![Google Sheets Integration](/assets/images/petsurveyanalysis-petsurvey-analysis-worksheet.png)
+
 ### 3. Reset Functionality
-Allows users to reset all worksheet data to zero before starting a new survey.
+**Allows users to reset all worksheet data to zero before starting a new survey.
 
 Ensures previous data does not interfere with new results.
+
+[TO FIX]**
 
 ### 4. Data Analysis
 Identifies the animal type with the highest count in the dataset.
 
 Prints a message if all counts are zero, ensuring meaningful feedback even in edge cases.
 
+![Highest Animal Count](/assets/images/petsurveyanalysis-highest-animal-count.png)
+
 ### 5. Robust Error Handling
 Ensures invalid inputs are gracefully handled with clear error messages.
 
 Warns users if they try to add animals not predefined in the system.
+
+![Error Message](/assets/images/petsurveyanalysis-animal-validation.png)
 
 ### 6. Readable Outputs
 Displays meaningful messages to guide users through the program workflow.
@@ -253,7 +268,7 @@ Connect your GitHub repository and deploy as normal.
 
 ### Live link:
 
- Pet Survey Analysis! < SITE LINK >
+[Pet Survey Analysis!](https://pet-survey-analysis-project3-dc2d0651f524.herokuapp.com) 
 
 
 --- 
