@@ -193,11 +193,30 @@ Below are the details of manual tests conducted to ensure functionality:
 
 
 ### Solved
-Bug1: While loop won’t end when answering “N” to if any more animals to add
-	Fix: Removed Recursion in keep_asking(). Removed the recursive call what_animal() inside keep_asking(). Instead, what_animal() uses the return value of keep_asking() to decide whether to continue or stop.
+**Bug1**: While loop won’t end when answering “N” to if any more animals to add
+	
+    Fix: Removed Recursion in keep_asking(). Removed the recursive call what_animal() inside keep_asking(). Instead, what_animal() uses the return value of keep_asking() to decide whether to continue or stop.
 
-Bug2: infinite loop. ask_to_reset_prev_data calls do_you_have_pets if the user chooses not to reset the data. do_you_have_pets completes and then continues back to main, which calls ask_to_reset_prev_data again.
-	Fix: Add a return Value for ask_to_reset_prev_data (True / False), Removed do_you_have_pets() from ask_to_reset_prev_data. Streamlined main by calling ask_to_reset_prev_data once, handles the decision, and proceeds without loops.
+**Bug2**: infinite loop. ask_to_reset_prev_data calls do_you_have_pets if the user chooses not to reset the data. do_you_have_pets completes and then continues back to main, which calls ask_to_reset_prev_data again.
+	
+    Fix: Add a return Value for ask_to_reset_prev_data (True / False), Removed do_you_have_pets() from ask_to_reset_prev_data. Streamlined main by calling ask_to_reset_prev_data once, handles the decision, and proceeds without loops.
+
+**Bug3**: Program unable to deploy on heroku. Followed steps from instructions and put in the below code to terminal:
+
+    pip3 freeze > requirements.txt
+
+Did not work.
+Fix: Copied requirements.txt from love-sandwiches.
+
+    cachetools==4.2.1
+    google-auth==1.27.0
+    google-auth-oauthlib==0.4.2
+    gspread==3.7.0
+    oauthlib==3.1.0
+    pyasn1==0.4.8
+    pyasn1-modules==0.2.8
+    requests-oauthlib==1.3.0
+    rsa==4.7.2
 
 ### Remaining
 
