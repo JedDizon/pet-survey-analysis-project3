@@ -180,23 +180,30 @@ def get_worksheet_values():
 
 def get_highest_count_animal():
     """
-    Determine the most popular animal
+    Determine the most popular animal(s).
+    If multiple animals have the same highest count, all are returned.
     """
-    print("Determining the animal with the highest count...\n")
-
+    print("Determining the animal(s) with the highest count...\n")
+    
     # Get the current worksheet data
     worksheet_data = get_worksheet_values()
-
+    
     if all(count == 0 for count in worksheet_data.values()):
         print("All animal counts are 0. No highest count animal.\n")
         return None
-
-    # Find the animal with the maximum count
-    highest_animal = max(worksheet_data, key=worksheet_data.get)
-    highest_count = worksheet_data[highest_animal]
-
-    print(f"The animal with the highest count is '{highest_animal}' with a count of {highest_count}.\n")
-    return highest_animal, highest_count
+    
+    # Find the maximum count
+    highest_count = max(worksheet_data.values())
+    
+    # Find all animals with the maximum count
+    highest_animals = [animal for animal, count in worksheet_data.items() if count == highest_count]
+    
+    if len(highest_animals) > 1:
+        print(f"Tie! The animals with the highest count ({highest_count}) are: {', '.join(highest_animals)}.\n")
+    else:
+        print(f"The animal with the highest count is '{highest_animals[0]}' with a count of {highest_count}.\n")
+    
+    return highest_animals, highest_count
 
 
 def main():
