@@ -14,10 +14,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('pet_survey_analysis')
 
-# test = SHEET.worksheet('results')
-# data = test.get_all_values()
-# print(data)
-
 
 def do_you_have_pets():
     """
@@ -220,6 +216,8 @@ def main():
     print(f"Resulting animal list: {animal_list}")
     update_survey_worksheet(animal_list)
     get_highest_count_animal()
+
+    print("Thank you for using Pet Surveyor Analysis! Your responses have been recorded.")
 
 
 main()
