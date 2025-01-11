@@ -61,11 +61,11 @@ Handles both new data entry and existing data updates without duplications.
 ![Google Sheets Integration](/assets/images/petsurveyanalysis-petsurvey-analysis-worksheet.png)
 
 ### 3. Reset Functionality
-**Allows users to reset all worksheet data to zero before starting a new survey.
+Allows users to reset all worksheet data to zero before starting a new survey.
 
 Ensures previous data does not interfere with new results.
 
-[TO FIX]**
+
 
 ### 4. Data Analysis
 Identifies the animal type with the highest count in the dataset.
@@ -102,8 +102,27 @@ Supports a variety of predefined animal categories, including:
 
 ## Future features 
 
-a. Paste in list of animals separated by comma.
-b. Make the survey more versataille for collecting a wider range of values: can add in own headings to collect data for.
+### 1. Advanced Analytics and Visualization
+Generate charts (e.g., bar graphs or pie charts) to visualize animal count distribution.
+
+Provide trend analysis if historical data is stored.
+Add a summary report displaying insights like percentage distribution of each animal.
+
+### 2. Export and Import Data
+Add the ability to export survey data to formats like CSV, Excel, or PDF.
+Allow importing data from external files to update the worksheet.
+
+### 4. Customizable Animal Categories
+Let users add or remove animal categories dynamically.
+Provide an interface for users to manage the categories stored in the worksheet.
+
+### 5. Historical Data Tracking
+Log all changes to the worksheet to track who made updates and when.
+Include a feature to undo changes or revert to a previous state.
+
+### 6. Survey Customization
+Allow users to define their own survey questions, not just limited to animals.
+Store multiple survey types within the worksheet.
 
 —
 
