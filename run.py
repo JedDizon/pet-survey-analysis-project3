@@ -59,6 +59,8 @@ def what_animal():
     """
     animal_list = []
     while True:
+        print("Choose an animal under the following headings:")
+        print("DOG, CAT, FISH, BIRD, REPTILE, SMALL MAMMAL, INSECTS, or OTHER")
         question_two = input("What animal?\n").strip().upper()
         print(f"User input is {question_two}\n")
         if validate_what_animal(question_two):

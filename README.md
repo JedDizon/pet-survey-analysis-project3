@@ -39,7 +39,6 @@ The program can reset previous data, add new entries, and determine the most pop
     b. if N, the program ends.
 8. Before the program ends, the resulting animal counts are displayed again along with the current most popular animal as a pet. 
 
-—
 
 ## Features 
 
@@ -233,13 +232,18 @@ Fix: Copied requirements.txt from love-sandwiches.
     requests-oauthlib==1.3.0
     rsa==4.7.2
 
-### Remaining
-
-Bug: Keep getting the below message in terminal if resetting previous values. Doesn't impact funtion of the program.
+**Bug4**: Keep getting the below message in terminal if resetting previous values. Doesn't impact funtion of the program.
+Message:
 
     /workspaces/pet-survey-analysis-project3/run.py:126: DeprecationWarning: The order of arguments in worksheet.update() has changed. Please pass values first and range_name secondor used named arguments (range_name=, values=)
     worksheet_to_update.update('B2:B9', [[0]] * 8)
     Previous data has been reset.
+
+Fix: Modify reset_prev_data function to use named arguments:
+
+   	 worksheet_to_update.update(range_name='B2:B9', values=[[0]] * 8)
+
+### Remaining
 
 —
 
