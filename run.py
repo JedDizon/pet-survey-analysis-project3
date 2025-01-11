@@ -124,8 +124,12 @@ def reset_prev_data():
     """
     print("Resetting previous data...\n")
     worksheet_to_update = SHEET.worksheet("results")
-    worksheet_to_update.update('B2:B9', [[0]] * 8)
+
+    # Explicitly use named arguments to match the updated API
+    worksheet_to_update.update(range_name='B2:B9', values=[[0]] * 8)
+    #worksheet_to_update.update('B2:B9', [[0]] * 8)
     print("Previous data has been reset.\n")
+
 
 
 def update_survey_worksheet(data):
