@@ -272,6 +272,9 @@ Fix: Modify reset_prev_data function to use named arguments:
 
 ## PEP8 
 
+Only errors returned were "lines too long" - Known and accepted as print statements.
+
+![PEP8 Validation](/assets/images/petsurveyanalysis-pep8-validation.png)
 
 — 
 

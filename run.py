@@ -125,9 +125,8 @@ def reset_prev_data():
 
     # Explicitly use named arguments to match the updated API
     worksheet_to_update.update(range_name='B2:B9', values=[[0]] * 8)
-    #worksheet_to_update.update('B2:B9', [[0]] * 8)
+    # worksheet_to_update.update('B2:B9', [[0]] * 8)
     print("Previous data has been reset.\n")
-
 
 
 def update_survey_worksheet(data):
@@ -182,25 +181,25 @@ def get_highest_count_animal():
     If multiple animals have the same highest count, all are returned.
     """
     print("Determining the animal(s) with the highest count...\n")
-    
+
     # Get the current worksheet data
     worksheet_data = get_worksheet_values()
-    
+
     if all(count == 0 for count in worksheet_data.values()):
         print("All animal counts are 0. No highest count animal.\n")
         return None
-    
+
     # Find the maximum count
     highest_count = max(worksheet_data.values())
-    
+
     # Find all animals with the maximum count
     highest_animals = [animal for animal, count in worksheet_data.items() if count == highest_count]
-    
+
     if len(highest_animals) > 1:
         print(f"Tie! The animals with the highest count ({highest_count}) are: {', '.join(highest_animals)}.\n")
     else:
         print(f"The animal with the highest count is '{highest_animals[0]}' with a count of {highest_count}.\n")
-    
+
     return highest_animals, highest_count
 
 
