@@ -220,7 +220,25 @@ Below are the details of manual tests conducted to ensure functionality:
 
 | TEST                   | ACTION                                | EXPECTATION                              | RESULT    |
 |------------------------|---------------------------------------|------------------------------------------|-----------|
-| **Test Starts**   | Test starts | Test starts           | **Test starts** |
+| **Program starts** on deployed site   | User opens program  | Program begins execution on the deployed site.           | **Success** |
+| **Display current data** on program open   | User opens program | Program displays current data on worksheet           | **Success** |
+| **Ask user if want to reset previous data**   | User opens program | Program asks user if they want to reset previous data           | **Success** |
+| **Test**   | Test | Test           | **Test** |
+| **Test**   | Test | Test           | **Test** |
+| **Test**   | Test | Test           | **Test** |
+| **Test**   | Test | Test           | **Test** |
+| **Test**   | Test | Test           | **Test** |
+| **Test**   | Test | Test           | **Test** |
+| **Test**   | Test | Test           | **Test** |
+| **Test**   | Test | Test           | **Test** |
+
+
+Display current data
+Ask user if want to reset previous data
+Ask if user if participants has a pet - Y/N question
+Asks user what animal - must choose in choices
+Asks user if more to add - y/n q → ask user what animal if y, ends if n
+End program - update worksheet, display summary of update values, states what highest animal count is
 
 
 

@@ -125,6 +125,7 @@ def reset_prev_data():
 
     # Explicitly use named arguments to match the updated API
     worksheet_to_update.update(range_name='B2:B9', values=[[0]] * 8)
+
     # worksheet_to_update.update('B2:B9', [[0]] * 8)
     print("Previous data has been reset.\n")
 
