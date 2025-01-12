@@ -13,7 +13,6 @@ The program can reset previous data, add new entries, and determine the most pop
 
 ![Website image](/assets/images/petsurveyanalysis-site-image.png)
 
-
 ---
 
 ## Program flow 
@@ -209,7 +208,6 @@ get_highest_count_animal(): Identifies the animal with the highest count in the 
 This data model enables the program to efficiently collect, validate, process, and update pet-related data while maintaining accuracy and usability.
 
 
-
 —
 
 ## Testing
@@ -303,7 +301,6 @@ None remaining
 
 --- 
 
-
 ## Validator 
 
 ### PEP8 
@@ -318,22 +315,35 @@ Only errors returned were "lines too long" - Known and accepted as print stateme
 
 ### Creating the Heroku app
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+1. Update run.py input method to include “\n”.
+2. Update requirements.txt with dependencies
+    a. Following did not work as it resulted in a large list of requirements.
 
-1. `heroku/python`
-2. `heroku/nodejs`
+    Pip3 freeze > requirements.txt
+    
+    b. Copied requirements from “Love Sandwiches” project.
+    c. Update gspread version to most up to date. 
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+    pip freeze | grep gspread
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
+3. Create a Heroku account.
+4. Create a new app on the Home page.
+5. Add unique app name & select region.
+6. Go to Settings
+    a. Create config vars:
+        i. Key: CREDS, value: copied from creds.json
+        ii. Key: PORT, value: 8000
+    b. Add buildpacks in order:
+        i. Python
+        ii. Node.js
+7. Go to deploy
+    a. Deployment method: Github
+    b. Connect to Github & connect to repository
+8. Manual deploy & deploy branch
 
 ### Live link:
 
 [Pet Survey Analysis!](https://pet-survey-analysis-project3-dc2d0651f524.herokuapp.com) 
-
 
 --- 
 
