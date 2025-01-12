@@ -21,14 +21,16 @@ def do_you_have_pets():
     """
     while True:
         question_one = input("Does the participant have / had a pet? (Y / N)\n").strip().upper()
-        print(f"User input is {question_one}\n")
+
+        if not question_one:
+            print("Input cannot be empty. Please enter Y or N.\n")
+            continue
 
         if validate_y_n_question(question_one):
             if question_one == 'N':
                 print("No pets, program will end.")
                 return []
             elif question_one == "Y":
-                print("Data is valid!")
                 return what_animal()
     return question_one
 
@@ -39,6 +41,8 @@ def validate_y_n_question(answer):
     Checks if answer given was Y or N.
     """
     try:
+        if not answer:
+            raise ValueError("Input cannot be empty.")
         if answer not in ('Y', 'N'):
             raise ValueError(
                 f"Y or N is required, you answered {answer}"
@@ -58,7 +62,11 @@ def what_animal():
         print("Choose an animal under the following headings:")
         print("DOG, CAT, FISH, BIRD, REPTILE, SMALL MAMMAL, INSECTS, or OTHER")
         question_two = input("What animal?\n").strip().upper()
-        print(f"User input is {question_two}\n")
+
+        if not question_two:
+            print("Input cannot be empty. Please enter a valid animal.\n")
+            continue
+
         if validate_what_animal(question_two):
             print("Animal is valid!")
             animal_list.append(question_two)
@@ -73,6 +81,8 @@ def validate_what_animal(answer):
     Checks if answer given was DOG, CAT, FISH, BIRD, OTHER.
     """
     try:
+        if not answer:
+            raise ValueError("Input cannot be empty.")
         if answer not in ('DOG', 'CAT', 'FISH', 'BIRD', 'REPTILE', 'SMALL MAMMAL', 'INSECTS', 'OTHER'):
             raise ValueError(
                 f"DOG, CAT, FISH, BIRD, REPTILE, SMALL MAMMAL, INSECTS or OTHER is required, you answered {answer}"
@@ -89,7 +99,7 @@ def keep_asking():
     """
     while True:
         question_three = input("Do you have another animal to add? (Y / N)\n").strip().upper()
-        print(f"User input is {question_three}\n")
+
         if validate_y_n_question(question_three):
             if question_three == 'N':
                 print("No additional animals to add")
@@ -105,7 +115,7 @@ def ask_to_reset_prev_data():
     """
     while True:
         question_four = input("Do you want to clear previous data? (Y / N)\n").strip().upper()
-        print(f"User input is {question_four}\n")
+
         if validate_y_n_question(question_four):
             if question_four == 'N':
                 print("Previous data will not be reset.")
