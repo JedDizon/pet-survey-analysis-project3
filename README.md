@@ -222,7 +222,7 @@ Below are the details of manual tests conducted to ensure functionality:
 |------------------------|---------------------------------------|------------------------------------------|-----------|
 | **Program starts** on deployed site   | User opens program  | Program begins execution on the deployed site.           | **Success** |
 | **Display current data** on program open   | User opens program | Program displays current data on worksheet           | **Success** |
-| **Ask user if want to reset previous data**   | User opens program | Program asks user if they want to reset previous data           | **Success** |
+| **Ask user if want to reset previous data**   | User opens program | Program asks user if they want to reset previous data           | **Fail** |
 | **Test**   | Test | Test           | **Test** |
 | **Test**   | Test | Test           | **Test** |
 | **Test**   | Test | Test           | **Test** |

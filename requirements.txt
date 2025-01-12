@@ -1,7 +1,7 @@
 cachetools==4.2.1
 google-auth==1.27.0
 google-auth-oauthlib==0.4.2
-gspread==3.7.0
+gspread==6.1.4
 oauthlib==3.1.0
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
