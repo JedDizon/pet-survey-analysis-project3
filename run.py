@@ -123,10 +123,10 @@ def reset_prev_data():
     print("Resetting previous data...\n")
     worksheet_to_update = SHEET.worksheet("results")
 
-    # Explicitly use named arguments to match the updated API
+    # Explicitly use named arguments to match the updated API (ChatGPT)
     worksheet_to_update.update(range_name='B2:B9', values=[[0]] * 8)
 
-    # worksheet_to_update.update('B2:B9', [[0]] * 8)
+    # worksheet_to_update.update('B2:B9', [[0]] * 8) (ChatGPT)
     print("Previous data has been reset.\n")
 
 

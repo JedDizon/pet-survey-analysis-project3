@@ -242,7 +242,7 @@ Below are the details of manual tests conducted to ensure functionality:
 ### Solved
 **Bug1**: While loop won’t end when answering “N” to if any more animals to add
 	
-    Fix: Removed Recursion in keep_asking(). Removed the recursive call what_animal() inside keep_asking(). Instead, what_animal() uses the return value of keep_asking() to decide whether to continue or stop.
+    Fix: Removed the call what_animal() inside keep_asking(). Instead, what_animal() uses the return value of keep_asking() to decide whether to continue or stop.
 
 **Bug2**: infinite loop. ask_to_reset_prev_data calls do_you_have_pets if the user chooses not to reset the data. do_you_have_pets completes and then continues back to main, which calls ask_to_reset_prev_data again.
 	
@@ -297,19 +297,22 @@ Fix: Manually updated gpsread version in requirements.txt (gspread==6.1.4 vs gsp
     pip freeze | grep gspread
     
 
-### Remaining
+### Remaining Bugs
 
-—
+None remaining
+
+--- 
+
 
 ## Validator 
 
-## PEP8 
+### PEP8 
 
 Only errors returned were "lines too long" - Known and accepted as print statements.
 
 ![PEP8 Validation](/assets/images/petsurveyanalysis-pep8-validation.png)
 
-— 
+--- 
 
 ## Deployment 
 
@@ -336,8 +339,16 @@ Connect your GitHub repository and deploy as normal.
 
 ## Credits
 
-ChatGPT code
-So that each upload to worksheet doesn’t create a new line and adds onto previous result
-
-Find highest number
-https://www.youtube.com/watch?v=BncMTg_7H8Q 
+### Outside Code
+- Code Institute
+    - Code terminal
+    - README template
+- Love sandwiches code
+    - Setting up workspace 
+    - Deployment
+- ChatGPT code
+    - Update worksheet correctly so that new additions don't create new rows/columns & each upload to worksheet doesn’t create a new line and adds onto previous result
+    - getting reset prev data corrected 
+    - TS'ing bug 2/4/5
+- YouTube
+    - Find highest number < https://www.youtube.com/watch?v=BncMTg_7H8Q > 
