@@ -51,6 +51,8 @@ Validates inputs to ensure only predefined animal types (DOG, CAT, FISH, etc.) a
 
 Supports adding multiple animals in a single session.
 
+![Pet choices](/assets/images/petsurveyanalysis-animal-choices.png)
+
 ### 2. Dynamic Data Management
 Integrates with Google Sheets to store and update survey results in real time.
 
@@ -65,7 +67,7 @@ Allows users to reset all worksheet data to zero before starting a new survey.
 
 Ensures previous data does not interfere with new results.
 
-
+![Clear previous choices](/assets/images/petsurveyanalysis-clear-prev-data.png)
 
 ### 4. Data Analysis
 Identifies the animal type with the highest count in the dataset.
