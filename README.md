@@ -222,28 +222,22 @@ Below are the details of manual tests conducted to ensure functionality:
 |------------------------|---------------------------------------|------------------------------------------|-----------|
 | **Program starts** on deployed site   | User opens program  | Program begins execution on the deployed site.           | **Success** |
 | **Display current data** on program open   | User opens program | Program displays current data on worksheet           | **Success** |
-| **Ask user if want to reset previous data**   | User opens program | Program asks user if they want to reset previous data           | **Fail** |
-| **Test**   | Test | Test           | **Test** |
-| **Test**   | Test | Test           | **Test** |
-| **Test**   | Test | Test           | **Test** |
-| **Test**   | Test | Test           | **Test** |
-| **Test**   | Test | Test           | **Test** |
-| **Test**   | Test | Test           | **Test** |
-| **Test**   | Test | Test           | **Test** |
-| **Test**   | Test | Test           | **Test** |
-
-
-Display current data
-Ask user if want to reset previous data
-Ask if user if participants has a pet - Y/N question
-Asks user what animal - must choose in choices
-Asks user if more to add - y/n q → ask user what animal if y, ends if n
-End program - update worksheet, display summary of update values, states what highest animal count is
-
+| **Ask user if want to reset previous data**   | User opens program | Program asks user if they want to reset previous data           | **Success** |
+| **Ask if user if participants has a pet**   | After answering the first question, program ask if user if participants has a pet  | After answering the first question, program ask if user if participants has a pet           | **Success** |
+| **User answer Y / N if participant has a pet**   | User answer Y / N if participant has a pet | User answer Y / N if participant has a pet. Other answers result in an error message and the question is asked again           | **Success** |
+| **User answers Y if participant has a pet**   | User answers Y if participant has a pet | Program continues to next question           | **Success** |
+| **User answers N if participant has a pet**   | User answers N if participant has a pet | Program ends           | **Success** |
+| **Ask user what animal**   | User continues to next question | Program asks user what animal           | **Success** |
+| **User answers what animal**   | User answers what animal | Program continues to next question           | **Success** |
+| **User answers what animal**   | User answers an animal not in the list | Program sends error message and asks again           | **Success** |
+| **Ask user if more to add**   | User continues to next question | Program asks user if more to add           | **Success** |
+| **User answers Y / N if more to add**   | User answers Y / N if more to add | User answer Y / N if more to add. Other answers result in an error message and the question is asked again           | **Success** |
+| **User answers Y if more to add**   | User answers Y if more to add | Program asks user what animal again          | **Success** |
+| **User answers N if more to add**   | User answers N if more to add | Program ends           | **Success** |
+| **End program**   | Program ends | Program updates worksheet, display summary of update values, states what highest animal count is | **Success** |
 
 
 ### Bugs 
-
 
 ### Solved
 **Bug1**: While loop won’t end when answering “N” to if any more animals to add
@@ -281,6 +275,27 @@ Message:
 Fix: Modify reset_prev_data function to use named arguments:
 
    	 worksheet_to_update.update(range_name='B2:B9', values=[[0]] * 8)
+
+**Bug5**: Deployed program errors with the following message when trying to reset prev data.
+
+    File "/app/run.py", line 223, in <module>
+        main()
+    File "/app/run.py", line 213, in main
+        data_reset = ask_to_reset_prev_data()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/app/run.py", line 115, in ask_to_reset_prev_data
+        reset_prev_data()
+    File "/app/run.py", line 127, in reset_prev_data
+        worksheet_to_update.update(range_name='B2:B9', values=[[0]] * 8)
+    File "/app/.heroku/python/lib/python3.12/site-packages/gspread/utils.py", line 587, in wrapper
+        raise TypeError(err % (f.__name__, list(unexpected_kwargs)))
+    TypeError: update got unexpected keyword arguments: ['values', 'range_name']
+
+Fix: Manually updated gpsread version in requirements.txt (gspread==6.1.4 vs gspread==3.7.0).
+
+    Ran below in terminal to get up to date version:
+    pip freeze | grep gspread
+    
 
 ### Remaining
 
