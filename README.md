@@ -317,28 +317,40 @@ Only errors returned were "lines too long" - Known and accepted as print stateme
 
 1. Update run.py input method to include “\n”.
 2. Update requirements.txt with dependencies
+
     a. Following did not work as it resulted in a large list of requirements.
 
-    Pip3 freeze > requirements.txt
+        Pip3 freeze > requirements.txt
     
     b. Copied requirements from “Love Sandwiches” project.
+
     c. Update gspread version to most up to date. 
 
-    pip freeze | grep gspread
+        pip freeze | grep gspread
 
 3. Create a Heroku account.
 4. Create a new app on the Home page.
 5. Add unique app name & select region.
 6. Go to Settings
+
     a. Create config vars:
+
         i. Key: CREDS, value: copied from creds.json
+
         ii. Key: PORT, value: 8000
+
     b. Add buildpacks in order:
+            
         i. Python
+
         ii. Node.js
+        
 7. Go to deploy
+
     a. Deployment method: Github
+
     b. Connect to Github & connect to repository
+
 8. Manual deploy & deploy branch
 
 ### Live link:
